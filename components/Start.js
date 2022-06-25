@@ -25,7 +25,7 @@ export default class Start extends React.Component {
     black: '#090C08',
     darkgray: '#474056',
     gray: '#8A95A5',
-    green: 'B9C6AE',
+    green: '#B9C6AE',
   };
 
   render() {
