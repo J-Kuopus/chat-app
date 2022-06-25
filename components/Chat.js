@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default class Chat extends React.Component {
 
@@ -7,14 +7,19 @@ export default class Chat extends React.Component {
      // Loads username and background color from Start screen
      let { name, bgColor } = this.props.route.params;
   
-
-    this.props.navigation.setOptions({ title: name });
-    this.props.navigation.setOptions({ backgroundColor: bgColor})
+     this.props.navigation.setOptions({ title: name });
+   
 
     return (
-      <View>
+      <View style={[{ backgroundColor: bgColor }, styles.container]}>
         {/* Rest of the UI */}
       </View>
     );
   };
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})
