@@ -4,7 +4,7 @@ import { View, Text, TextInput, Button, StyleSheet, Pressable, ImageBackground, 
 // Imports BackgroundImage
 import BackgroundImage from "../img/BackgroundImage.png";
 
-
+// Renders Start page
 export default class Start extends React.Component {
   constructor(props) {
     super(props);

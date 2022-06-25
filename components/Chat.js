@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+// Renders the Chat page
 export default class Chat extends React.Component {
 
   render() {
@@ -11,6 +12,7 @@ export default class Chat extends React.Component {
    
 
     return (
+      /* Renders background color */
       <View style={[{ backgroundColor: bgColor }, styles.container]}>
         {/* Rest of the UI */}
       </View>
@@ -18,6 +20,7 @@ export default class Chat extends React.Component {
   };
 }
 
+// Styling elements
 const styles = StyleSheet.create({
   container: {
     flex: 1,

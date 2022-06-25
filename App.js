@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
-// import react native gesture handler
+// Imports react native gesture handler
 import 'react-native-gesture-handler';
 
-// import react Navigation
+// Imports react navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-// import the screens to navigate to
+// Imports the screens to navigate to
 import Start from './components/Start';
 import Chat from './components/Chat';
 
-// Create the navigator
+// Creates the navigator
 const Stack = createStackNavigator();
 
 export default class App extends React.Component {
