@@ -1,4 +1,5 @@
 import React from 'react';
+import { GiftedChat } from 'react-native-gifted-chat'
 import { View, Text, StyleSheet } from 'react-native';
 
 // Renders the Chat page
