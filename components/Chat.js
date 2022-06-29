@@ -13,6 +13,7 @@ export default class Chat extends React.Component {
 
   componentDidMount() {
     let { name } = this.props.route.params;
+    this.props.navigation.setOptions({ title: name });
     this.setState({
       messages: [
         {
@@ -65,8 +66,6 @@ export default class Chat extends React.Component {
   render() {
      // Loads username and background color from Start screen
      let { name, bgColor } = this.props.route.params;
-  
-     this.props.navigation.setOptions({ title: name });
    
 
     return (
