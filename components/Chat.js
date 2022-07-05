@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/compat/app";
 import 'firebase/firestore';
 import firebase from 'firebase/compat';
 import firestore from 'firebase/compat/app';
+
 // Imports asyncstorage
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import NetInfo from '@react-native-community/netinfo';
@@ -146,6 +147,7 @@ export default class Chat extends React.Component {
     });
   }
 
+  // Sends user messages
   onSend(messages = []) {
     this.setState((previousState) => ({
       messages: GiftedChat.append(previousState.messages, messages),
@@ -155,6 +157,7 @@ export default class Chat extends React.Component {
     });
   }
 
+  // Updates messages collection
   onCollectionUpdate = (querySnapshot) => {
     const messages = [];
     // Go through each document
