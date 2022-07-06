@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/compat/app";
 import 'firebase/firestore';
 import firebase from 'firebase/compat';
 import firestore from 'firebase/compat/app';
+import CustomActions from './CustomActions';
 
 // Imports asyncstorage
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -215,6 +216,10 @@ export default class Chat extends React.Component {
     )
   }
 
+  renderCustomActions = (props) => {
+    return <CustomActions {...props} />;
+  };
+
   render() {
      // Loads username and background color from Start screen
      let { name, bgColor } = this.props.route.params;
@@ -233,6 +238,7 @@ export default class Chat extends React.Component {
             name: name,
             avatar: this.state.user.avatar
           }}
+          renderActions={this.renderCustomActions}
         />
         { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null }
       </View>
