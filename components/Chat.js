@@ -7,6 +7,9 @@ import firebase from 'firebase/compat';
 import firestore from 'firebase/compat/app';
 import CustomActions from './CustomActions';
 
+// Imports MapView from "react-native-maps";
+import { Constants, MapView, Location, Permissions } from 'expo';
+
 // Imports asyncstorage
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import NetInfo from '@react-native-community/netinfo';
@@ -220,6 +223,25 @@ export default class Chat extends React.Component {
     return <CustomActions {...props} />;
   };
 
+  //custom map view
+  renderCustomView(props) {
+    const { currentMessage } = props;
+    if (currentMessage.location) {
+      return (
+        <MapView
+          style={{ width: 150, height: 100, borderRadius: 13, margin: 3 }}
+          region={{
+            latitude: currentMessage.location.latitude,
+            longitude: currentMessage.location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+      );
+    }
+    return null;
+  }
+
   render() {
      // Loads username and background color from Start screen
      let { name, bgColor } = this.props.route.params;
@@ -239,6 +261,7 @@ export default class Chat extends React.Component {
             avatar: this.state.user.avatar
           }}
           renderActions={this.renderCustomActions}
+          renderCustomView={this.renderCustomView}
         />
         { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null }
       </View>
