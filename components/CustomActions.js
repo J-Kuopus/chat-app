@@ -2,6 +2,11 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import PropTypes from "prop-types";
 
+import { initializeApp } from "firebase/compat/app";
+import 'firebase/firestore';
+import firebase from 'firebase/compat';
+import firestore from 'firebase/compat/app';
+
 export default class CustomActions extends React.Component {
     onActionPress = () => {
         const options = ['Choose From Library', 'Take Picture', 'Send Location', 'Cancel'];
