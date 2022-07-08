@@ -152,6 +152,7 @@ const styles = StyleSheet.create({
     },
    });
 
-   CustomActions.contextTypes = {
-    actionSheet: PropTypes.func,
-   };
+   
+CustomActions.contextTypes = {
+  actionSheet: PropTypes.func,
+};
