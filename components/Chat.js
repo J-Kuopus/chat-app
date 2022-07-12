@@ -1,6 +1,6 @@
 import React from 'react';
 import { GiftedChat, Bubble, InputToolbar } from 'react-native-gifted-chat';
-import { View, Text, StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet, Platform, KeyboardAvoidingView, } from 'react-native';
 import { initializeApp } from "firebase/compat/app";
 import 'firebase/firestore';
 import firebase from 'firebase/compat';
@@ -8,7 +8,7 @@ import firestore from 'firebase/compat/app';
 import CustomActions from './CustomActions';
 
 // Imports MapView from "react-native-maps";
-import { Constants, MapView, Location, Permissions } from 'react-native-maps';
+import { Constants, MapView, Location, Permissions } from 'expo';
 
 // Imports asyncstorage
 import AsyncStorage from '@react-native-async-storage/async-storage'
