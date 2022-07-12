@@ -8,7 +8,7 @@ import firestore from 'firebase/compat/app';
 import CustomActions from './CustomActions';
 
 // Imports MapView from "react-native-maps";
-import { Constants, MapView, Location, Permissions } from 'expo';
+import { Constants, MapView, Location, Permissions } from 'react-native-maps';
 
 // Imports asyncstorage
 import AsyncStorage from '@react-native-async-storage/async-storage'
