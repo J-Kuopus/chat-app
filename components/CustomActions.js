@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import PropTypes from "prop-types";
-
+import { connectActionSheet } from "@expo/react-native-action-sheet";
 // Imports firestore/firebase modules
 import { initializeApp } from "firebase/compat/app";
 import 'firebase/firestore';
