@@ -34,7 +34,7 @@
    - Gifted Chat: `npm install react-native-gifted-chat`
      - To import Gifted Chat into your app use: import { GiftedChat } from 'react-native-gifted-chat';
      - To set up the chat, follow these instructions: https://github.com/FaridSafi/react-native-gifted-chat
--You can also set up offline functionality by implementing **Async Storage** :
+- You can also set up offline functionality by implementing **Async Storage** :
  - Install Async Storage package: `expo install @react-native-community/async-storage`
    - Import AsyncStorage into the chat screen file: import AsyncStorage from '@react-native-community/async-storage';
    - Create function for storing and retrieving data from AsyncStorage
