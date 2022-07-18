@@ -1,34 +1,31 @@
-import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Pressable, ImageBackground, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
+import React, { useState } from 'react';
+import { View, 
+         Text,
+         TextInput, 
+         Button, 
+         StyleSheet, 
+         Pressable, 
+         ImageBackground, 
+         TouchableOpacity, 
+         KeyboardAvoidingView} 
+  from 'react-native';
 
 // Imports BackgroundImage
 import BackgroundImage from "../img/BackgroundImage.png";
 
 // Renders Start page
-export default class Start extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: '',
-      bgColor: this.colors,
-    };
-  }
-
-  // Allows user to change state ofbackground color on Chat screen
-  changeBgColor = (newColor) => {
-    this.setState({ bgColor: newColor });
-  };
-
+export default function Start(props) {
+   const [name, setName] = useState('');
+   const [bgColor, setColor] = useState('');
+  
   // Background colors
-  colors = {
+  const colors = {
     black: '#090C08',
     darkgray: '#474056',
     gray: '#8A95A5',
     green: '#B9C6AE',
   };
 
-  render() {
     return (
       // Main container
       <View style={styles.container}>
@@ -51,17 +48,17 @@ export default class Start extends React.Component {
             <View style={styles.inputBox}>
               <TextInput
                 style={styles.input}
-                onChangeText={(text) => this.setState({ name: text })}
-                value={this.state.name}
+                onChangeText={(name) => setName(name)}
+                value={name}
                 placeholder='Your name'
               />
            </View>
 
             {/* Choose background color for Chat screen */}
             <View style={styles.colorBox}>
-              <Text style={styles.chooseColor}>
-                {''}
-                Choose background color:{''}
+              <Text style={styles.chooseColor}
+                    accessibilityHint='Lets you choose from four different background colors'>
+                Choose background color:
               </Text>
             </View>
 
@@ -69,23 +66,23 @@ export default class Start extends React.Component {
             <View style={styles.colorArray}>
               <TouchableOpacity
                 style={styles.color1}
-                onPress={() => this.changeBgColor(this.colors.black)}
-                accessibilityLabel="black"
+                onPress={() => setColor(colors.black)}
+                accessibilityLabel='black'
               ></TouchableOpacity>
               <TouchableOpacity
                 style={styles.color2}
-                onPress={() => this.changeBgColor(this.colors.darkgray)}
-                accessibilityLabel="dark gray"
+                onPress={() => setColor(colors.darkgray)}
+                accessibilityLabel='dark gray'
               ></TouchableOpacity>
               <TouchableOpacity
                 style={styles.color3}
-                onPress={() => this.changeBgColor(this.colors.gray)}
-                accessibilityLabel="gray"
+                onPress={() => setColor(colors.gray)}
+                accessibilityLabel='gray'
               ></TouchableOpacity>
               <TouchableOpacity
                 style={styles.color4}
-                onPress={() => this.changeBgColor(this.colors.green)}
-                accessibilityLabel="green"
+                onPress={() => setColor(colors.green)}
+                accessibilityLabel='green'
               ></TouchableOpacity>
             </View>
 
@@ -93,9 +90,9 @@ export default class Start extends React.Component {
             <Pressable
               style={styles.button}
               onPress={() =>
-                this.props.navigation.navigate('Chat', {
-                  name: this.state.name,
-                  bgColor: this.state.bgColor,
+                props.navigation.navigate('Chat', {
+                  name,
+                  bgColor,
                 })
               }
             >
@@ -105,8 +102,8 @@ export default class Start extends React.Component {
         </ImageBackground>
       </View>
     );
-  }
 }
+
 
 // Styling elements
 const styles = StyleSheet.create({
