@@ -15,7 +15,7 @@
 - **Expo**
 - **React Navigation** third party library
 - **React Native Gifted Chat** library
-- **Android Studio
+- **Android Studio**
 - **Node.js** and **Node Package Manager**
 
 ## Setting up Development Environment
