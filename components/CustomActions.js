@@ -7,7 +7,6 @@ import { initializeApp } from 'firebase/compat/app';
 import 'firebase/firestore';
 import firebase from 'firebase/compat';
 import firestore from 'firebase/compat/app';
-import 'firebase/storage';
 import {getDownloadURL, ref, uploadBytes} from 'firebase/storage';
 
 // Imports expo communication modules
