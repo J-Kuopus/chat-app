@@ -19,14 +19,14 @@ import NetInfo from '@react-native-community/netinfo';
 /* const firebase = require('firebase/app');
 require('firebase/firestore'); */
 
-/* const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyC4Mks67a5pf5KN23qsYi7cGLJvsgWBD0g",
   authDomain: "meet-app-352610.firebaseapp.com",
   projectId: "meet-app-352610",
   storageBucket: "meet-app-352610.appspot.com",
   messagingSenderId: "590789825703",
   appId: "1:590789825703:web:a31eb550ca5bc62f743782"
-}; */
+};
 
 // Renders the Chat page
 export default class Chat extends React.Component {
