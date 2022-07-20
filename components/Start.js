@@ -1,137 +1,120 @@
-import React, { useState } from 'react';
-import { View, 
-         Text,
-         TextInput, 
-         Button, 
-         StyleSheet, 
-         Pressable, 
-         ImageBackground, 
-         TouchableOpacity, 
-         KeyboardAvoidingView} 
-  from 'react-native';
+import React, { useState } from "react";
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  TouchableOpacity,
+  Platform,
+  KeyboardAvoidingView,
+} from "react-native";
 
-// Imports BackgroundImage
-import BackgroundImage from "../img/BackgroundImage.png";
+import image from "../img/BackgroundImage.png";
 
 // Renders Start page
 export default function Start(props) {
-   const [name, setName] = useState('');
-   const [bgColor, setColor] = useState('');
-  
+  const [name, setName] = useState(" ");
+  const [bgColor, setColor] = useState(" ");
+
   // Background colors
   const colors = {
-    black: '#090C08',
-    darkgray: '#474056',
-    gray: '#8A95A5',
-    green: '#B9C6AE',
+    black: "#090C08",
+    darkgray: "#474056",
+    gray: "#8A95A5",
+    green: "#B9C6AE",
   };
 
-    return (
-      // Main container
-      <View style={styles.container}>
+  return (
+    // Main container
+    <View style={{flex: 1,}}
+    >
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <Text style={styles.titleText}>Let's Chat!</Text>
 
-        {/* All elements are wrapped in the ImageBackground element, so it stretches over the whole screen */}
-        <ImageBackground
-          source={BackgroundImage}
-          resizeMode='cover'
-          style={styles.backgroundImage}
-        >
-          {/* App title */}
-          <View style={styles.titleBox}>
-            <Text style={styles.title}>Let's Chat!</Text>
+        {/* Username input */}
+        <View style={styles.view}>
+          <View style={styles.inputBox}>
+            <TextInput
+              style={styles.input}
+              onChangeText={(name) => setName(name)}
+              value={name}
+              placeholder="Your name"
+            ></TextInput>
           </View>
 
-          {/* Container for input elements*/}
-          <View style={styles.box1}>
-
-            {/* Input username box */}
-            <View style={styles.inputBox}>
-              <TextInput
-                style={styles.input}
-                onChangeText={(name) => setName(name)}
-                value={name}
-                placeholder='Your name'
-              />
-           </View>
-
-            {/* Choose background color for Chat screen */}
-            <View style={styles.colorBox}>
-              <Text style={styles.chooseColor}
-                    accessibilityHint='Lets you choose from four different background colors'>
-                Choose background color:
-              </Text>
-            </View>
-
-            {/* Background colors */}
-            <View style={styles.colorArray}>
-              <TouchableOpacity
-                style={styles.color1}
-                onPress={() => setColor(colors.black)}
-                accessibilityLabel='black'
-              ></TouchableOpacity>
-              <TouchableOpacity
-                style={styles.color2}
-                onPress={() => setColor(colors.darkgray)}
-                accessibilityLabel='dark gray'
-              ></TouchableOpacity>
-              <TouchableOpacity
-                style={styles.color3}
-                onPress={() => setColor(colors.gray)}
-                accessibilityLabel='gray'
-              ></TouchableOpacity>
-              <TouchableOpacity
-                style={styles.color4}
-                onPress={() => setColor(colors.green)}
-                accessibilityLabel='green'
-              ></TouchableOpacity>
-            </View>
-
-            {/* Button that navigates to Chat page */}
-            <Pressable
-              style={styles.button}
-              onPress={() =>
-                props.navigation.navigate('Chat', {
-                  name,
-                  bgColor,
-                })
-              }
+          {/* Choose background color for chat screen */}
+          <View style={styles.colorBox}>
+            <Text
+              style={styles.chooseColor}
+              accessibilityHint="Lets you choose from four different background colors."
             >
-              <Text style={styles.buttonText}>Start Chatting</Text>
-            </Pressable>
+              Choose background color
+            </Text>
           </View>
-        </ImageBackground>
-      </View>
-    );
-}
 
+          {/* Background color buttons */}
+          <View style={styles.colorPalette}>
+            <TouchableOpacity
+              style={styles.color1}
+              onPress={() => setColor(colors.black)}
+              accessibilityLabel="black"
+            ></TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.color1, styles.color2]}
+              onPress={() => setColor(colors.darkgray)}
+              accessibilityLabel="dark gray"
+            ></TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.color1, styles.color3]}
+              onPress={() => setColor(colors.gray)}
+              accessibilityLabel="gray"
+            ></TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.color1, styles.color4]}
+              onPress={() => setColor(colors.green)}
+              accessibilityLabel="green"
+            ></TouchableOpacity>
+          </View>
+
+          {/* Button that navigates to chat page */}
+          <Pressable
+            style={styles.button}
+            onPress={() =>
+              props.navigation.navigate("Chat", {
+                name,
+                bgColor,
+              })
+            }
+          >
+            <Text style={styles.buttonText}>Start Chatting</Text>
+          </Pressable>
+        </View>
+      </ImageBackground>
+      {/* Ensures that the input field won’t be hidden beneath the keyboard */}
+      {Platform.OS === "android" ? (
+        <KeyboardAvoidingView behavior="height" />
+      ) : null}
+    </View>
+  );
+}
 
 // Styling elements
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-
-  backgroundImage: {
-    flex: 1,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  titleBox: {
-    height: "40%",
-    width: "88%",
-    alignItems: "center",
-    paddingTop: 40,
-  },
-
-  title: {
+  titleText: {
     fontSize: 45,
     fontWeight: "600",
     color: "#FFFFFF",
   },
 
-  box1: {
+  image: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+
+  view: {
     backgroundColor: "#FFFFFF",
     minHeight: "44%",
     width: "88%",
@@ -152,24 +135,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  image: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
-  },
-
   input: {
     fontSize: 16,
     fontWeight: "300",
     color: "#757083",
     opacity: 0.5,
-  },
-
-  colorBox: {
-    marginRight: "auto",
-    paddingLeft: 15,
-    width: "88%",
-    paddingTop: 10,
   },
 
   chooseColor: {
@@ -179,7 +149,14 @@ const styles = StyleSheet.create({
     opacity: 100,
   },
 
-  colorArray: {
+  colorBox: {
+    marginRight: "auto",
+    paddingLeft: 15,
+    width: "88%",
+    paddingTop: 10,
+  },
+
+  colorPalette: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: "80%",
@@ -225,8 +202,8 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: "#FFFFFF",
     fontSize: 16,
     fontWeight: "600",
+    color: "#FFFFFF",
   },
 });
