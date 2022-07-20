@@ -19,7 +19,7 @@ export default function App() {
     return (
       <NavigationContainer>
           <Stack.Navigator
-            initialRouteName="Start">
+            initialRouteName="Screen1">
             <Stack.Screen
               name="Start"
               component={Start}
