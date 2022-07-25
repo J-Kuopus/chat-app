@@ -5,9 +5,8 @@
 
 ## Images
 
-![Chap App Image 1](img/Chat-app1.jpg?raw=true "Title")
-<br/>
-![Chat App Image 2](img/Chat-app2.jpg?raw=true "Title")
+![Chap App Image 1](img/Chat-app1.jpg?raw=true "Title") ![Chat App Image 2](img/Chat-app2.jpg?raw=true "Title")
+
 
 ## Features
 - A start screen where users can enter a name and choose a background color for the chat screen.
