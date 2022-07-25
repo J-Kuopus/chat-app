@@ -3,6 +3,12 @@
 ## Description
 - This is a chat application for use with mobile devices built using React-Native. The app allows users to send texts, take photos, share photos from their media library, and also to share their location.
 
+## Images
+
+![Chap App Image 1](img/Chat-app1.jpg?raw=true "Title")
+<br/>
+![Chat App Image 2](img/Chat-app2.jpg?raw=true "Title")
+
 ## Features
 - A start screen where users can enter a name and choose a background color for the chat screen.
 - A chat screen where users can type messages into an input field, and a "send" button to submit them to each other.
